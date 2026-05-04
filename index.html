@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mr. Bounce Secrets</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0f0f0f;
+      color: #f0f0f0;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 20px;
+      padding: 50px 40px;
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #2a2a2a;
+      color: #888;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    h1 span {
+      color: #f5a623;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 36px;
+      font-weight: 300;
+    }
+
+    button {
+      background: #f5a623;
+      color: #000;
+      border: none;
+      padding: 14px 36px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      border-radius: 50px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    button:hover {
+      background: #ffb83f;
+      transform: scale(1.03);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    button:disabled {
+      background: #333;
+      color: #555;
+      cursor: default;
+      transform: none;
+    }
+
+    #video-container {
+      display: none;
+      margin-top: 36px;
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    video {
+      width: 100%;
+      border-radius: 12px;
+      background: #000;
+    }
+
+    .video-label {
+      margin-top: 14px;
+      font-size: 0.8rem;
+      color: #444;
+      letter-spacing: 1px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #2a2a2a;
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="badge">🔒 Classified</div>
+
+    <h1>Mr. <span>Bounce</span> Secrets</h1>
+    <p class="subtitle">Top secret content. Proceed with caution.</p>
+
+    <button id="reveal-btn" onclick="revealSecret()">Reveal My Secrets</button>
+
+    <div id="video-container">
+      <hr class="divider"/>
+      <video controls autoplay>
+        <source src="video.mp4" type="video/mp4" />
+        Dein Browser unterstützt kein HTML5-Video.
+      </video>
+      <p class="video-label">— The truth has been revealed —</p>
+    </div>
+  </div>
+
+  <script>
+    function revealSecret() {
+      const container = document.getElementById('video-container');
+      const btn = document.getElementById('reveal-btn');
+
+      container.style.display = 'block';
+      btn.textContent = 'Secret Revealed';
+      btn.disabled = true;
+    }
+  </script>
+
+</body>
+</html>
